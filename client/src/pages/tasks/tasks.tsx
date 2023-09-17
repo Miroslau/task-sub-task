@@ -20,6 +20,8 @@ import {taskForm} from "../../constants/task-form";
 import tasksAPI from "../../api/tasks/tasksAPI";
 import { Delete } from "@mui/icons-material";
 import MenuItem from "@mui/material/MenuItem";
+import {useNavigate} from "react-router-dom";
+import {TASK} from "../../constants/routes";
 
 const LIMIT_ITEMS = 8;
 
@@ -38,6 +40,7 @@ const Tasks = () => {
     const [editTaskModal, setEditTaskModal] = useState(false);
 
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const { tasks, status } = useSelector(taskSelector);
 
@@ -113,6 +116,11 @@ const Tasks = () => {
         )
     }
 
+    const navigateDetailPage = (id: number) => {
+        const path = TASK.replace("tasks/:id", id.toString());
+        navigate(path);
+    };
+
     const {
         handleChange,
         handleSubmit,
@@ -144,6 +152,10 @@ const Tasks = () => {
             field: 'title',
             headerName: 'TITLE',
             flex: 0.5,
+            renderCell: (params) => {
+                const { row } = params;
+                return <ButtonMui title={row.title} color="secondary" variant="outlined" clickButton={navigateDetailPage.bind(this, row.id)} />
+            }
         },
         {
             field: 'description',

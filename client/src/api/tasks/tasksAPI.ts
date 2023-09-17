@@ -6,6 +6,10 @@ export default {
         return httpClient.get(query);
     },
 
+    getTaskById(id: number) {
+        return httpClient.get(`tasks/${id}`);
+    },
+
     createTask({ title, description }: createTask) {
         return httpClient.post(`/tasks`, {
             title,

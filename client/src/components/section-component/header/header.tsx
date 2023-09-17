@@ -2,14 +2,14 @@ import React, { FC } from "react";
 import { Box, Typography } from "@mui/material";
 
 interface HeaderProps {
-    title: string;
+    title: string | undefined;
     titleColor: string;
     subTitleColor: string;
     subtitle?: string;
 }
 
 const Header: FC<HeaderProps> = ({
-     title,
+     title= '',
      subtitle,
      subTitleColor,
      titleColor,

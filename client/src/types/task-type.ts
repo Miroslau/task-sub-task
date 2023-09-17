@@ -18,6 +18,12 @@ export type createTask = {
     description: string;
 }
 
+export type createSubTask = {
+    title: string;
+    description: string;
+    taskId: number;
+}
+
 export type changeStatus = {
     idOfTask: number,
     status: string,
@@ -33,5 +39,13 @@ export type taskSliceState = {
     status: StatusEnum,
     errorMessage: unknown;
     totalTasks: number;
+    totalPages: number;
+}
+
+export type subTaskSliceState = {
+    subTasks: taskType[],
+    status: StatusEnum,
+    errorMessage: unknown;
+    totalSubTasks: number;
     totalPages: number;
 }
