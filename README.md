@@ -22,10 +22,13 @@ $  docker-compose build
 ```bash
 $  docker-compose up 
 ```
-(Нужно будет немного подождать, так как в начале бэк будет выкидывать ошибку ERROR [TypeOrmModule] Unable to connect to the database. Retrying.
-Но потом он подключиться и вывидет сообщение server started on PORT 5000. После этого можно переходить к 5-му шагу)
+(Нужно будет немного подождать, так как в начале бэк будет выкидывать ошибку ERROR [TypeOrmModule] Unable to connect to the database. Retrying. Но потом он подключиться и вывидет сообщение server started on PORT 5000. После этого можно переходить к 5-му шагу)
+
 5) После того как комманда выполнится создается сервер базы данных куда подключится бэк после его подключения
 надо зайти в папку server/.env и в переменной TYPEORM_HOST поставить localhost.
+
+
+   
 6) Далее надо запустить миграцию с использованием комманды
 ```bash
 $  npm run migration:run
